@@ -3,36 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gol kommune</title>
+  <title>Gol kommune — Hallingdal</title>
+  <meta name="description" content="Gol kommune — midt i hjertet av Hallingdal. Finn tenester, nyhende og informasjon for innbyggjarar og næringsliv." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- SKIP LINK -->
+  <a href="#main-content" class="skip-link">Hopp til innhald</a>
+
   <!-- HEADER -->
-  <header class="site-header">
+  <header class="site-header" role="banner">
     <div class="container header-inner">
-      <div class="logo">
-        <div class="logo-mark">G</div>
+      <a href="/" class="logo" aria-label="Gol kommune — tilbake til startsida">
+        <div class="logo-mark" aria-hidden="true">G</div>
         <div class="logo-text">
           <span class="logo-name">Gol kommune</span>
           <span class="logo-sub">Hallingdal</span>
         </div>
-      </div>
-      <nav class="main-nav">
+      </a>
+      <nav class="main-nav" aria-label="Hovudnavigasjon">
         <a href="#">Innbygger</a>
         <a href="#">Næringsliv</a>
         <a href="#">Politikk</a>
         <a href="#">Om kommunen</a>
       </nav>
       <div class="header-actions">
-        <button class="btn-search" aria-label="Søk">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <button class="btn-search" aria-label="Opne søk" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         </button>
-        <a href="#" class="btn-primary-sm">Min side</a>
+        <a href="#" class="btn-primary-sm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Min side
+        </a>
       </div>
-      <button class="hamburger" onclick="toggleMenu()" aria-label="Meny">&#9776;</button>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Opne meny" aria-expanded="false" aria-controls="mobileNav">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
-    <nav class="mobile-nav" id="mobileNav">
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobilnavigasjon" aria-hidden="true">
       <a href="#">Innbygger</a>
       <a href="#">Næringsliv</a>
       <a href="#">Politikk</a>
@@ -41,253 +55,423 @@
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <p class="hero-eyebrow">Velkommen til</p>
-      <h1>Gol kommune</h1>
-      <p class="hero-desc">Midt i hjertet av Hallingdal — ein god stad å bu, arbeide og besøke.</p>
-      <div class="hero-search">
-        <input type="text" placeholder="Søk etter tjenester, skjema, informasjon..." />
-        <button>Søk</button>
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Velkomstseksjon">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow animate-in">Velkommen til</p>
+        <h1 class="animate-in delay-1">Gol kommune</h1>
+        <p class="hero-desc animate-in delay-2">Midt i hjertet av Hallingdal — ein god stad å bu, arbeide og besøke.</p>
+        <div class="hero-search animate-in delay-3" role="search">
+          <label for="hero-search-input" class="sr-only">Søk etter tenester</label>
+          <input id="hero-search-input" type="search" placeholder="Søk etter tenester, skjema, informasjon..." autocomplete="off" />
+          <button type="submit" aria-label="Søk">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Søk
+          </button>
+        </div>
+        <div class="hero-badges animate-in delay-4" aria-label="Populære søk">
+          <span class="badge-label">Populære:</span>
+          <a href="#" class="hero-badge">Barnehageplass</a>
+          <a href="#" class="hero-badge">Byggesøknad</a>
+          <a href="#" class="hero-badge">Fastlege</a>
+          <a href="#" class="hero-badge">Renovasjon</a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section class="quick-links" aria-label="Hurtiglenker">
+      <div class="container">
+        <nav class="quick-grid" aria-label="Tenestekategoriar">
+          <a href="#" class="quick-card">
+            <span class="quick-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12L12 3l9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
+            </span>
+            <span class="quick-label">Bygg og eiendom</span>
+          </a>
+          <a href="#" class="quick-card">
+            <span class="quick-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </span>
+            <span class="quick-label">Skole og barnehage</span>
+          </a>
+          <a href="#" class="quick-card">
+            <span class="quick-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </span>
+            <span class="quick-label">Helse og omsorg</span>
+          </a>
+          <a href="#" class="quick-card">
+            <span class="quick-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            </span>
+            <span class="quick-label">Samferdsel</span>
+          </a>
+          <a href="#" class="quick-card">
+            <span class="quick-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 8C8 10 5.9 16.17 3.82 19.82L5 21l1-1 1 1 1-1 1 1"/><path d="M9.5 9.5C10.5 8 12 6 16 4c0 4-1 7.5-4 9.5"/></svg>
+            </span>
+            <span class="quick-label">Natur og friluftsliv</span>
+          </a>
+          <a href="#" class="quick-card">
+            <span class="quick-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </span>
+            <span class="quick-label">Skjema og søknader</span>
+          </a>
+          <a href="#" class="quick-card">
+            <span class="quick-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </span>
+            <span class="quick-label">Politikk og møter</span>
+          </a>
+          <a href="#" class="quick-card">
+            <span class="quick-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </span>
+            <span class="quick-label">Kontakt oss</span>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ALERT BANNER (varsel) -->
+    <div class="alert-banner" role="alert" aria-live="polite">
+      <div class="container alert-inner">
+        <span class="alert-icon" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </span>
+        <p><strong>Kommunestyremøte 23. april kl. 09:00</strong> — Sakslista er no tilgjengeleg. <a href="#">Les meir →</a></p>
+        <button class="alert-close" aria-label="Lukk varsel" onclick="this.closest('.alert-banner').remove()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
       </div>
     </div>
-    <div class="hero-scroll-hint">↓</div>
-  </section>
 
-  <!-- QUICK LINKS -->
-  <section class="quick-links">
-    <div class="container">
-      <div class="quick-grid">
-        <a href="#" class="quick-card">
-          <span class="quick-icon">🏠</span>
-          <span class="quick-label">Bygg og eiendom</span>
-        </a>
-        <a href="#" class="quick-card">
-          <span class="quick-icon">🎓</span>
-          <span class="quick-label">Skole og barnehage</span>
-        </a>
-        <a href="#" class="quick-card">
-          <span class="quick-icon">❤️</span>
-          <span class="quick-label">Helse og omsorg</span>
-        </a>
-        <a href="#" class="quick-card">
-          <span class="quick-icon">🚌</span>
-          <span class="quick-label">Samferdsel</span>
-        </a>
-        <a href="#" class="quick-card">
-          <span class="quick-icon">🌲</span>
-          <span class="quick-label">Natur og friluftsliv</span>
-        </a>
-        <a href="#" class="quick-card">
-          <span class="quick-icon">📋</span>
-          <span class="quick-label">Skjema og søknader</span>
-        </a>
-        <a href="#" class="quick-card">
-          <span class="quick-icon">🗳️</span>
-          <span class="quick-label">Politikk og møter</span>
-        </a>
-        <a href="#" class="quick-card">
-          <span class="quick-icon">📞</span>
-          <span class="quick-label">Kontakt oss</span>
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- NEWS + NOTICES -->
+    <section class="content-section" aria-labelledby="news-heading">
+      <div class="container content-grid">
 
-  <!-- NEWS + NOTICES -->
-  <section class="content-section">
-    <div class="container content-grid">
-
-      <!-- News -->
-      <div class="news-col">
-        <div class="section-header">
-          <h2>Aktuelt</h2>
-          <a href="#" class="link-more">Sjå alle nyhende →</a>
-        </div>
-        <div class="news-list">
-          <article class="news-card">
-            <div class="news-date">12. april 2026</div>
-            <h3><a href="#">Kommuneplan 2026–2038 ute på høring</a></h3>
-            <p>Gol kommunestyre har vedteke å sende arealdelen av kommuneplanen ut på offentleg ettersyn. Høyringsfristen er 1. juni.</p>
-          </article>
-          <article class="news-card">
-            <div class="news-date">8. april 2026</div>
-            <h3><a href="#">Ny gang- og sykkelvei langs RV7 godkjent</a></h3>
-            <p>Statens vegvesen og Gol kommune har inngått avtale om bygging av gang- og sykkelveg mellom Gol sentrum og Golsfjellet.</p>
-          </article>
-          <article class="news-card">
-            <div class="news-date">3. april 2026</div>
-            <h3><a href="#">Biblioteket utvider åpningstidene frå mai</a></h3>
-            <p>Gol bibliotek vil frå og med 4. mai ha opent kvar laurdag kl. 10–14 i tillegg til vanlege opningstider.</p>
-          </article>
-          <article class="news-card">
-            <div class="news-date">28. mars 2026</div>
-            <h3><a href="#">Kulturprisen 2026 går til Hallingdal Spelmannslag</a></h3>
-            <p>Kommunestyret delte ut årets kulturpris til Hallingdal Spelmannslag for deira arbeid med å bevare folkemusikk-tradisjonen.</p>
-          </article>
-        </div>
-      </div>
-
-      <!-- Notices -->
-      <div class="notices-col">
-        <div class="section-header">
-          <h2>Kunngjeringar</h2>
-          <a href="#" class="link-more">Alle kunngjeringar →</a>
-        </div>
-        <ul class="notices-list">
-          <li><span class="notice-tag">Høring</span><a href="#">Reguleringsplan Golsfjellet Vest — høringsfrist 20. mai</a></li>
-          <li><span class="notice-tag">Vedtak</span><a href="#">Budsjettjustering Q1 2026 — kommunestyrevedtak</a></li>
-          <li><span class="notice-tag">Møte</span><a href="#">Formannskapsmøte 23. april kl. 09:00 — saksliste</a></li>
-          <li><span class="notice-tag">Ledige</span><a href="#">Ledig stilling: Ergoterapeut 100 % fast</a></li>
-          <li><span class="notice-tag">Høring</span><a href="#">Parkeringsregulering Gol sentrum — innspillsfrist 15. mai</a></li>
-          <li><span class="notice-tag">Ledige</span><a href="#">Ledig stilling: Pedagogisk leiar i barnehage</a></li>
-        </ul>
-
-        <!-- Contact card -->
-        <div class="contact-card">
-          <h3>Kontakt kommunen</h3>
-          <div class="contact-row">
-            <span>📞</span>
-            <div><strong>Sentralbord</strong><br /><a href="tel:32029000">32 02 90 00</a></div>
+        <!-- News -->
+        <div class="news-col reveal">
+          <div class="section-header">
+            <h2 id="news-heading">Aktuelt</h2>
+            <a href="#" class="link-more" aria-label="Sjå alle nyhende">Sjå alle nyhende <span aria-hidden="true">→</span></a>
           </div>
-          <div class="contact-row">
-            <span>✉️</span>
-            <div><strong>E-post</strong><br /><a href="mailto:post@gol.kommune.no">post@gol.kommune.no</a></div>
+          <div class="news-list" role="list">
+            <article class="news-card" role="listitem">
+              <div class="news-meta">
+                <time class="news-date" datetime="2026-04-12">12. april 2026</time>
+                <span class="news-tag">Høring</span>
+              </div>
+              <h3><a href="#">Kommuneplan 2026–2038 ute på høring</a></h3>
+              <p>Gol kommunestyre har vedteke å sende arealdelen av kommuneplanen ut på offentleg ettersyn. Høyringsfristen er 1. juni.</p>
+            </article>
+            <article class="news-card" role="listitem">
+              <div class="news-meta">
+                <time class="news-date" datetime="2026-04-08">8. april 2026</time>
+                <span class="news-tag">Infrastruktur</span>
+              </div>
+              <h3><a href="#">Ny gang- og sykkelvei langs RV7 godkjent</a></h3>
+              <p>Statens vegvesen og Gol kommune har inngått avtale om bygging av gang- og sykkelveg mellom Gol sentrum og Golsfjellet.</p>
+            </article>
+            <article class="news-card" role="listitem">
+              <div class="news-meta">
+                <time class="news-date" datetime="2026-04-03">3. april 2026</time>
+                <span class="news-tag">Kultur</span>
+              </div>
+              <h3><a href="#">Biblioteket utvider åpningstidene frå mai</a></h3>
+              <p>Gol bibliotek vil frå og med 4. mai ha opent kvar laurdag kl. 10–14 i tillegg til vanlege opningstider.</p>
+            </article>
+            <article class="news-card" role="listitem">
+              <div class="news-meta">
+                <time class="news-date" datetime="2026-03-28">28. mars 2026</time>
+                <span class="news-tag">Kultur</span>
+              </div>
+              <h3><a href="#">Kulturprisen 2026 går til Hallingdal Spelmannslag</a></h3>
+              <p>Kommunestyret delte ut årets kulturpris til Hallingdal Spelmannslag for deira arbeid med å bevare folkemusikk-tradisjonen.</p>
+            </article>
           </div>
-          <div class="contact-row">
-            <span>📍</span>
-            <div><strong>Adresse</strong><br />Gamlevegen 4, 3550 Gol</div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="notices-col reveal delay-1" aria-label="Kunngjeringar og kontakt">
+          <div class="section-header">
+            <h2>Kunngjeringar</h2>
+            <a href="#" class="link-more" aria-label="Sjå alle kunngjeringar">Alle <span aria-hidden="true">→</span></a>
           </div>
-          <div class="contact-row">
-            <span>🕐</span>
-            <div><strong>Opningstid</strong><br />Man–fre: 09:00–15:00</div>
+          <ul class="notices-list" role="list">
+            <li role="listitem">
+              <span class="notice-tag hearing">Høring</span>
+              <a href="#">Reguleringsplan Golsfjellet Vest — høringsfrist 20. mai</a>
+            </li>
+            <li role="listitem">
+              <span class="notice-tag decision">Vedtak</span>
+              <a href="#">Budsjettjustering Q1 2026 — kommunestyrevedtak</a>
+            </li>
+            <li role="listitem">
+              <span class="notice-tag meeting">Møte</span>
+              <a href="#">Formannskapsmøte 23. april kl. 09:00 — saksliste</a>
+            </li>
+            <li role="listitem">
+              <span class="notice-tag job">Ledig</span>
+              <a href="#">Ledig stilling: Ergoterapeut 100 % fast</a>
+            </li>
+            <li role="listitem">
+              <span class="notice-tag hearing">Høring</span>
+              <a href="#">Parkeringsregulering Gol sentrum — innspillsfrist 15. mai</a>
+            </li>
+            <li role="listitem">
+              <span class="notice-tag job">Ledig</span>
+              <a href="#">Ledig stilling: Pedagogisk leiar i barnehage</a>
+            </li>
+          </ul>
+
+          <!-- Contact card -->
+          <div class="contact-card" aria-label="Kontaktinformasjon">
+            <h3>Kontakt kommunen</h3>
+            <div class="contact-list">
+              <div class="contact-row">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <div>
+                  <strong>Sentralbord</strong>
+                  <a href="tel:32029000">32 02 90 00</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <strong>E-post</strong>
+                  <a href="mailto:post@gol.kommune.no">post@gol.kommune.no</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <strong>Adresse</strong>
+                  <span>Gamlevegen 4, 3550 Gol</span>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <strong>Opningstid</strong>
+                  <span>Man–fre 09:00–15:00</span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </aside>
 
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- ABOUT STRIP -->
-  <section class="about-strip">
-    <div class="container about-grid">
-      <div class="about-stat">
-        <span class="about-num">4 900</span>
-        <span class="about-desc">Innbyggjarar</span>
+    <!-- STATS STRIP -->
+    <section class="stats-strip" aria-label="Fakta om Gol kommune">
+      <div class="container stats-grid">
+        <div class="stat-item reveal">
+          <span class="stat-num" data-count="4900">4 900</span>
+          <span class="stat-label">Innbyggjarar</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item reveal delay-1">
+          <span class="stat-num">826 km²</span>
+          <span class="stat-label">Areal</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item reveal delay-2">
+          <span class="stat-num">1838</span>
+          <span class="stat-label">Etablert</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item reveal delay-3">
+          <span class="stat-num">206 moh.</span>
+          <span class="stat-label">Høgde over havet</span>
+        </div>
       </div>
-      <div class="about-stat">
-        <span class="about-num">826 km²</span>
-        <span class="about-desc">Areal</span>
-      </div>
-      <div class="about-stat">
-        <span class="about-num">1838</span>
-        <span class="about-desc">Etablert</span>
-      </div>
-      <div class="about-stat">
-        <span class="about-num">206 moh.</span>
-        <span class="about-desc">Høgde over havet</span>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SERVICES CARDS -->
-  <section class="content-section bg-light">
-    <div class="container">
-      <h2 class="section-title">Tenester for innbyggjarar</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🏗️</div>
-          <h3>Bygg og plan</h3>
-          <p>Søk om byggetillatelse, finn gjeldande reguleringsplanar og finn informasjon om eigedomar.</p>
-          <a href="#" class="service-link">Les meir →</a>
+    <!-- SERVICES CARDS -->
+    <section class="content-section services-section" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="services-header reveal">
+          <h2 id="services-heading">Tenester for innbyggjarar</h2>
+          <p>Alt du treng frå kommunen — samla på ein stad.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">👶</div>
-          <h3>Barnehage og SFO</h3>
-          <p>Søk om barnehageplass, finn opptaksinformasjon og sjå oversikt over kommunale barnehagar.</p>
-          <a href="#" class="service-link">Les meir →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🏥</div>
-          <h3>Helse og omsorg</h3>
-          <p>Fastlege, heimetenester, sjukeheim og psykisk helse — finn rett hjelp til rett tid.</p>
-          <a href="#" class="service-link">Les meir →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🎭</div>
-          <h3>Kultur og fritid</h3>
-          <p>Finn aktivitetar, idrettsanlegg, kulturarrangement og tilbod for alle aldersgrupper.</p>
-          <a href="#" class="service-link">Les meir →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🌍</div>
-          <h3>Næring og utvikling</h3>
-          <p>Støtteordningar, næringsutvikling og informasjon for deg som vil starte eller drive bedrift i Gol.</p>
-          <a href="#" class="service-link">Les meir →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">♻️</div>
-          <h3>Renovasjon og miljø</h3>
-          <p>Avfallshandsaming, gjenvinning, tømmekalender og miljøstasjonar i kommunen.</p>
-          <a href="#" class="service-link">Les meir →</a>
+        <div class="services-grid" role="list">
+          <article class="service-card reveal" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Bygg og plan</h3>
+            <p>Søk om byggetillatelse, finn gjeldande reguleringsplanar og finn informasjon om eigedomar.</p>
+            <a href="#" class="service-link" aria-label="Les meir om bygg og plan">Les meir <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal delay-1" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3>Barnehage og SFO</h3>
+            <p>Søk om barnehageplass, finn opptaksinformasjon og sjå oversikt over kommunale barnehagar.</p>
+            <a href="#" class="service-link" aria-label="Les meir om barnehage og SFO">Les meir <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal delay-2" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>Helse og omsorg</h3>
+            <p>Fastlege, heimetenester, sjukeheim og psykisk helse — finn rett hjelp til rett tid.</p>
+            <a href="#" class="service-link" aria-label="Les meir om helse og omsorg">Les meir <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Kultur og fritid</h3>
+            <p>Finn aktivitetar, idrettsanlegg, kulturarrangement og tilbod for alle aldersgrupper.</p>
+            <a href="#" class="service-link" aria-label="Les meir om kultur og fritid">Les meir <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal delay-1" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <h3>Næring og utvikling</h3>
+            <p>Støtteordningar, næringsutvikling og informasjon for deg som vil starte eller drive bedrift i Gol.</p>
+            <a href="#" class="service-link" aria-label="Les meir om næring og utvikling">Les meir <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card reveal delay-2" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+            </div>
+            <h3>Renovasjon og miljø</h3>
+            <p>Avfallshandsaming, gjenvinning, tømmekalender og miljøstasjonar i kommunen.</p>
+            <a href="#" class="service-link" aria-label="Les meir om renovasjon og miljø">Les meir <span aria-hidden="true">→</span></a>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="cta-strip reveal" aria-labelledby="cta-heading">
+      <div class="container cta-inner">
+        <div class="cta-text">
+          <h2 id="cta-heading">Digital innbyggerportal</h2>
+          <p>Logg inn på Min side for å søke om tenester, sjå saksgang og kommunisere direkte med kommunen.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn-cta-primary">Logg inn med ID-porten</a>
+          <a href="#" class="btn-cta-secondary">Les meir om Min side</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-col">
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-top">
+      <div class="footer-brand">
         <div class="footer-logo">
-          <div class="logo-mark small">G</div>
+          <div class="logo-mark small" aria-hidden="true">G</div>
           <span>Gol kommune</span>
         </div>
         <p>Gamlevegen 4<br />3550 Gol<br />Org.nr: 864 951 932</p>
+        <div class="footer-social" aria-label="Sosiale medium">
+          <a href="#" aria-label="Gol kommune på Facebook" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Gol kommune på Instagram" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="footer-col">
+      <nav class="footer-col" aria-label="Tenester">
         <h4>Tenester</h4>
         <ul>
           <li><a href="#">Bygg og eiendom</a></li>
           <li><a href="#">Skole og barnehage</a></li>
           <li><a href="#">Helse og omsorg</a></li>
           <li><a href="#">Kultur og fritid</a></li>
+          <li><a href="#">Renovasjon</a></li>
         </ul>
-      </div>
-      <div class="footer-col">
+      </nav>
+      <nav class="footer-col" aria-label="Om kommunen">
         <h4>Om kommunen</h4>
         <ul>
           <li><a href="#">Politikk og organisasjon</a></li>
           <li><a href="#">Budsjett og økonomi</a></li>
           <li><a href="#">Ledige stillingar</a></li>
           <li><a href="#">Innsyn i postjournal</a></li>
+          <li><a href="#">Kart og eigedom</a></li>
         </ul>
-      </div>
-      <div class="footer-col">
+      </nav>
+      <nav class="footer-col" aria-label="Kontakt og hjelp">
         <h4>Kontakt</h4>
         <ul>
           <li><a href="tel:32029000">32 02 90 00</a></li>
           <li><a href="mailto:post@gol.kommune.no">post@gol.kommune.no</a></li>
           <li><a href="#">Finn oss på kart</a></li>
+          <li><a href="#">Chat med oss</a></li>
           <li><a href="#">Tilgjengeleikserkjæring</a></li>
         </ul>
-      </div>
+      </nav>
     </div>
     <div class="footer-bottom">
-      <div class="container">
+      <div class="container footer-bottom-inner">
         <span>© 2026 Gol kommune</span>
-        <span><a href="#">Personvern</a> · <a href="#">Cookies</a> · <a href="#">Tilgjengeleikserkjæring</a></span>
+        <span class="footer-links">
+          <a href="#">Personvern</a>
+          <a href="#">Informasjonskapslar</a>
+          <a href="#">Tilgjengeleikserkjæring</a>
+        </span>
       </div>
     </div>
   </footer>
 
   <script>
+    // Mobile menu toggle
     function toggleMenu() {
       const nav = document.getElementById('mobileNav');
-      nav.classList.toggle('open');
+      const btn = document.querySelector('.hamburger');
+      const open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+      nav.setAttribute('aria-hidden', !open);
+      btn.classList.toggle('is-open', open);
     }
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('revealed');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Sticky header shrink
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
   </script>
+
 </body>
 </html>
